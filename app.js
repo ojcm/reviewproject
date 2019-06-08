@@ -31,6 +31,33 @@ app.post("/reviews", function(req, res){
     res.redirect("/reviews");
 });
 
+// SHOW route
+app.get("/reviews/:id", function(req, res){
+    // find review in DB
+    var review = null;
+    
+    // show review
+    res.render("show", {review:review});
+});
+
+// EDIT route
+app.get("/review/:id/edit", function(req, res){
+    // find review in DB
+    
+    // show review edit form
+    res.show("edit", {review: review});
+});
+
+// UPDATE route
+app.put("/review/:id", function(req, res){
+    // find review in DB
+    
+    // update with data from form
+    
+    // show review
+    res.render("show", {review: review});
+});
+
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The Review Server has started.")
 });
