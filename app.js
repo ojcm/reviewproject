@@ -58,6 +58,14 @@ app.put("/review/:id", function(req, res){
     res.render("show", {review: review});
 });
 
+// DESTROY route
+app.delete("/review/:id", function (req, res){
+    // Find and delete by id
+
+    // Show all reviews
+    res.redirect("/reviews");
+});
+
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("The Review Server has started.")
 });
