@@ -7,6 +7,15 @@ var express    = require("express"),
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
+// Mongoose/Model config
+var reviewSchema = new mongoose.Schema({
+    title: String,
+    image: String,
+    body: String,
+    rating: Integer,
+    created: {type: Date, default: Date.now()}
+});
+var Review = mongoose.model("Review", reviewSchema);
 
 app.get("/", function(req, res){
     console.log("Render landing");
@@ -61,6 +70,7 @@ app.put("/review/:id", function(req, res){
 // DESTROY route
 app.delete("/review/:id", function (req, res){
     // Find and delete by id
+    Review.findByIdAndRemove(id);
 
     // Show all reviews
     res.redirect("/reviews");
