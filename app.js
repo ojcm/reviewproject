@@ -1,11 +1,17 @@
 var express    = require("express"),
     app        = express(),
-    bodyParser = require("body-parser");
-    // mongoose   = require("mongoose");
+    bodyParser = require("body-parser"),
+    mongoose         = require('mongoose'),
+    methodOverride   = require('method-override'),
+    expressSanitizer = require('express-sanitizer');
 
 // mongoose.connect("mongodb://localhost:27017/reviewsite", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(expressSanitizer());
+app.use(methodOverride("_method"));
 
 // Mongoose/Model config
 var reviewSchema = new mongoose.Schema({
@@ -24,56 +30,83 @@ app.get("/", function(req, res){
 
 // INDEX route
 app.get("/reviews", function(req, res){
-    res.send("REVIEWS");
+    Review.find({}, function(err, reviews){
+        if (err){
+            console.log("Error");
+        } else {
+            res.render("index", {reviews:reviews});
+        }
+    });
 });
 
 // NEW route
 app.get("/reviews/new", function(req, res){
-    res.send("NEW FORM");
+    res.render("new");
 });
 
 // CREATE route
 app.post("/reviews", function(req, res){
-    // store new review in DB
-    
-    // show all reviews
-    res.redirect("/reviews");
+   req.body.review.body = req.sanitize(req.body.review.body);
+   Review.create(req.body.review, function(err, review){
+       if (err) {
+           res.render("new");
+           console.log("ERROR");
+       } else {
+           res.redirect("/reviews");
+       }
+   });
 });
 
 // SHOW route
 app.get("/reviews/:id", function(req, res){
     // find review in DB
-    var review = null;
-    
-    // show review
-    res.render("show", {review:review});
+    Review.findById(req.params.id, function(err, foundReview){
+        if (err) {
+            console.log("ERROR");
+            res.redirect("/reviews");
+        } else {
+            res.render("show", {review: foundReview});
+        }
+    });
 });
 
 // EDIT route
-app.get("/review/:id/edit", function(req, res){
+app.get("/reviews/:id/edit", function(req, res){
     // find review in DB
-    
-    // show review edit form
-    res.show("edit", {review: review});
+    Review.findById(req.params.id, function(err, foundReview){
+        if (err) {
+            console.log("ERROR");
+            res.redirect("/reviews/" + req.params.id);
+        } else {
+            res.render("edit", {review: foundReview});
+        }
+    });
 });
 
 // UPDATE route
-app.put("/review/:id", function(req, res){
-    // find review in DB
-    
-    // update with data from form
-    
-    // show review
-    res.render("show", {review: review});
+app.put("/reviews/:id", function(req, res){
+    req.body.review.body = req.sanitize(req.body.review.body);
+    Review.findByIdAndUpdate(req.params.id, req.body.review, function(err, foundReview){
+        if (err) {
+            console.log("ERROR");
+            res.redirect("/reviews/");
+        } else {
+            res.redirect("/reviews/" + req.params.id);
+        }
+    });
 });
 
 // DESTROY route
-app.delete("/review/:id", function (req, res){
+app.delete("/reviews/:id", function (req, res){
     // Find and delete by id
-    Review.findByIdAndRemove(id);
-
-    // Show all reviews
-    res.redirect("/reviews");
+    Review.findByIdAndRemove(req.params.id, function(err){
+       if (err) {
+           console.log("ERROR");
+           res.redirect("/reviews");
+       } else {
+           res.redirect("/reviews");
+       }
+    });
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
