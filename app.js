@@ -5,6 +5,8 @@ var express    = require("express"),
     methodOverride   = require('method-override'),
     expressSanitizer = require('express-sanitizer');
 
+var Review = require("./models/review");
+
 // mongoose.connect("mongodb://localhost:27017/reviewsite", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -12,16 +14,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
-
-// Mongoose/Model config
-var reviewSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    body: String,
-    rating: Integer,
-    created: {type: Date, default: Date.now()}
-});
-var Review = mongoose.model("Review", reviewSchema);
 
 app.get("/", function(req, res){
     console.log("Render landing");
