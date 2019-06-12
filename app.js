@@ -9,7 +9,8 @@ var express          = require("express"),
     LocalStrategy    = require("passport-local"),
     User             = require("./models/user");
       
-var companyRoutes    = require("./routes/companies");
+var companyRoutes    = require("./routes/companies"),
+    adminRoutes      = require("./routes/admin");
 
 mongoose.connect("mongodb://localhost:27017/reviewsite", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
@@ -41,6 +42,7 @@ app.use(function(req, res, next){
 });
 
 app.use("/companies/", companyRoutes);
+app.use("/admin/", adminRoutes);
 
 app.get("/", function(req, res){
     res.render("landing");

@@ -1,0 +1,43 @@
+<% include ../partials/header %>
+
+<div class="ui container">
+    
+    <h1 class="ui header">Companies</h1>
+    
+    <a class="ui green basic button" href="/companies/new">
+        New Company
+        <i class="right chevron icon"></i>
+    </a>
+
+    <div class="ui divided items">
+        <% companies.forEach(function(company){ %>
+            <div class="ui item">
+                <div class="content">
+                    <div class="header"><%=company.name%></div>
+                    <div class="extra"><%=company.address%></div>
+                    <div class="extra">
+                        <div class="ui label">
+                            <%=company.category%>
+                        </div>
+                        <form class="ui right floated input" action="/companies/<%= company._id%>?_method=DELETE" method="POST">
+                            <button class="ui small red basic button">
+                                Delete
+                                <i class="right chevron icon"></i>
+                            </button>
+                        </form>
+                        <a class="ui right floated small orange basic button" href="/companies/<%= company._id%>/edit">
+                            Edit
+                            <i class="right chevron icon"></i>
+                        </a>
+                        <a class="ui right floated small primary basic button" href="/companies/<%= company._id%>">
+                            More Info
+                            <i class="right chevron icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ../../partials/footer %>
