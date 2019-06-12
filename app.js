@@ -18,6 +18,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
+app.use(express.static('public'));
 
 seedDB();
 
@@ -42,7 +43,6 @@ app.use(function(req, res, next){
 app.use("/companies/", companyRoutes);
 
 app.get("/", function(req, res){
-    console.log("Render landing");
     res.render("landing");
 });
 
