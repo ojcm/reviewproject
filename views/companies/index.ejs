@@ -20,6 +20,7 @@
                 </a>
             </div>
             <div class="ui extra"><%=company.address%></div>
+            <div class="ui extra"><a href="/companies?suburb=<%=company.suburb%>"><%=company.suburb %></a> <a href="/companies?state=<%=company.state%>"><%=company.state%></a> <a href="/companies?postalcode=<%=company.postalcode%>"><%= company.postalcode %></a></div>
             <div class="ui extra"><%=company.reviewCount%> reviews</div>
         </div>
         <a href="/companies/<%= company._id%>">

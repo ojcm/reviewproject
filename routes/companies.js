@@ -4,10 +4,18 @@ var express = require("express"),
 
 // INDEX route
 router.get("/", function(req, res){
+    var filter = {};
     if (req.query.category) {
-        var filter = {"category" : req.query.category};
-    } else {
-        var filter = {};
+        filter.category = req.query.category;
+    }
+    if (req.query.suburb) {
+        filter.suburb = req.query.suburb;
+    }
+    if (req.query.state) {
+        filter.state = req.query.state;
+    }
+    if (req.query.postalcode) {
+        filter.postalcode = req.query.postalcode;
     }
     Company.find(filter, function(err, companies){
         if (err){

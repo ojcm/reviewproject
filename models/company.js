@@ -3,6 +3,9 @@ var mongoose = require('mongoose');
 var companySchema = new mongoose.Schema({
     name: String,
     address: String,
+    suburb: String,
+    state: String,
+    postalcode: String,
     category: String,
     description: String,
     reviews: [{
