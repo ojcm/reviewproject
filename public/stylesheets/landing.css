@@ -1,5 +1,7 @@
 body {
     background-image: url("../images/haybales.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #landing-header {
