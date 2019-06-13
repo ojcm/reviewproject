@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+<div class="ui text container clearing segment">
+
+    <h1 class="ui header">Add New Review for <%= company.name %></h1>
+    <form class="ui form" action="/companies/<%= company._id %>/reviews" method="POST">
+      <div class="field">
+        <label>Author</label>
+        <input type="text" name="review[author]" placeholder="Author">
+      </div>
+      <div class="field">
+        <label>Review</label>
+        <input type="text" name="review[body]" placeholder="Review">
+      </div>
+      <div class="field">
+        <label>Image URL</label>
+        <input type="text" name="review[image]" placeholder="Image URL">
+      </div>
+      <div class="field">
+        <label>Rating</label>
+        <input type="text" name="review[rating]" placeholder="Rating">
+      </div>
+      <a href="/companies/<%=company._id%>" >
+        <button class="ui left floated negative basic button">Cancel</button>
+      </a>
+      <button class="ui right floated primary button" type="submit">Submit</button>
+    </form>
+</div>
+
+<% include ../partials/footer %>

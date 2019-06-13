@@ -10,6 +10,7 @@ var express          = require("express"),
     User             = require("./models/user");
       
 var companyRoutes    = require("./routes/companies"),
+    reviewRoutes     = require("./routes/reviews"),
     adminRoutes      = require("./routes/admin");
 
 mongoose.connect("mongodb://localhost:27017/reviewsite", {useNewUrlParser: true});
@@ -42,6 +43,7 @@ app.use(function(req, res, next){
 });
 
 app.use("/companies/", companyRoutes);
+app.use("/companies/:id/reviews", reviewRoutes);
 app.use("/admin/", adminRoutes);
 
 app.get("/", function(req, res){

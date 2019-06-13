@@ -33,7 +33,7 @@ router.post("/", function(req, res){
 // SHOW route
 router.get("/:id", function(req, res){
     // find company in DB
-    Company.findById(req.params.id, function(err, foundCompany){
+    Company.findById(req.params.id).populate("reviews").exec(function(err, foundCompany){
         if (err) {
             console.log("ERROR");
             res.redirect("/companies");

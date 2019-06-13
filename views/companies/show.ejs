@@ -1,25 +1,48 @@
 <% include ../partials/header %>
 
-<div class="ui clearing text container segment">
+<div class="ui text clearing container segment">
+    <div class="ui clearing basic segment">
 
-    <h1 class="ui header"><%= company.name %></h1>
-    <p><%= company.address %></p>
-    <div class="ui label"><%= company.category %></div>
-    <p><%= company.description %></p>
-    
-    <div>
-        <form action="/companies/<%= company._id %>?_method=DELETE" method="POST">
-            <button class="ui right floated red basic button">
-                Delete
+        <h1 class="ui header"><%= company.name %></h1>
+        <p><%= company.address %></p>
+        <div class="ui label"><%= company.category %></div>
+        <p><%= company.description %></p>
+        
+        <div>
+            <form action="/companies/<%= company._id %>?_method=DELETE" method="POST">
+                <button class="ui right floated red basic button">
+                    Delete
+                    <i class="right chevron icon"></i>
+                </button>
+            </form>
+            <a class="ui right floated orange basic button" href="/companies/<%= company._id %>/edit">
+                Edit
                 <i class="right chevron icon"></i>
-            </button>
-        </form>
-        <a class="ui right floated orange basic button" href="/companies/<%= company._id %>/edit">
-            Edit
-            <i class="right chevron icon"></i>
-        </a>
+            </a>
+        </div>
     </div>
 
+<!--Reviews-->
+    <div class="ui comments">
+        <h3 class="ui dividing header">Reviews</h3>
+        <% company.reviews.forEach(function(review){ %>
+            <div class="comment">
+                <div class="content">
+                    <div class="ui item">
+                        <div class="content">
+                            <div class="author"><%=review.author%></div>
+                            <div class="text"><%=review.body%></div>
+                            <div class="extra">Rating:<%=review.rating%></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        <a class="ui tiny right floated positive button" 
+           href="/companies/<%= company._id %>/reviews/new">
+            Add Review
+        </a>
+    </div>
 </div>
 
 <% include ../partials/footer %>
