@@ -4,7 +4,12 @@ var express = require("express"),
 
 // INDEX route
 router.get("/", function(req, res){
-    Company.find({}, function(err, companies){
+    if (req.query.category) {
+        var filter = {"category" : req.query.category};
+    } else {
+        var filter = {};
+    }
+    Company.find(filter, function(err, companies){
         if (err){
             console.log("Error");
         } else {

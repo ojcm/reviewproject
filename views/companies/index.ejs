@@ -15,7 +15,9 @@
     <div class="column">
         <div class="ui attached segment">
             <div class="ui header"><%=company.name%>
-                <div class="ui tiny right floated button"><%=company.category%></div>
+                <a href="/companies?category=<%= company.category %>" >
+                    <div class="ui tiny right floated button"><%=company.category%></div>
+                </a>
             </div>
             <div class="ui extra"><%=company.address%></div>
             <div class="ui extra"><%=company.reviewCount%> reviews</div>
