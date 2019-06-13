@@ -14,9 +14,10 @@
     <% companies.forEach(function(company){ %>
     <div class="column">
         <div class="ui attached segment">
-            <div class="ui header"><%=company.name%></div>
+            <div class="ui header"><%=company.name%>
+                <div class="ui tiny right floated button"><%=company.category%></div>
+            </div>
             <div class="ui extra"><%=company.address%></div>
-            <div class="ui label"><%=company.category%></div>
             <div class="ui extra"><%=company.reviewCount%> reviews</div>
         </div>
         <a href="/companies/<%= company._id%>">
