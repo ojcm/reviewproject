@@ -21,7 +21,7 @@ app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 app.use(express.static('public'));
 
-seedDB();
+// seedDB();
 
 // PASSPORT CONFIG
 app.use(require('express-session')({

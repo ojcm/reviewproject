@@ -5,6 +5,7 @@
     <h1 class="ui header"><%= company.name %></h1>
     <p><%= company.address %></p>
     <div class="ui label"><%= company.category %></div>
+    <p><%= company.description %></p>
     
     <div>
         <form action="/companies/<%= company._id %>?_method=DELETE" method="POST">

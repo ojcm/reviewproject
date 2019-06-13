@@ -1,33 +1,38 @@
 <% include ../partials/header %>
 
-<div class="ui container">
-    
-    <h1 class="ui header">Companies</h1>
-    
-    <a class="ui green basic button" href="/companies/new">
-        New Company
-        <i class="right chevron icon"></i>
-    </a>
+<div class="ui basic clearing segment" >
 
-    <div class="ui divided items">
-        <% companies.forEach(function(company){ %>
-            <div class="ui item">
-                <div class="content">
-                    <div class="header"><%=company.name%></div>
-                    <div class="extra"><%=company.address%></div>
-                    <div class="extra">
-                        <div class="ui label">
-                            <%=company.category%>
-                        </div>
-                        <a class="ui right floated primary basic button" href="/companies/<%= company._id%>">
-                            More Info
-                            <i class="right chevron icon"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <% }) %>
+    
+
+</div>
+
+
+<div class="ui three column doubling stackable grid container" >
+    <div class="column">
+        <h1 class="ui inline header">Companies</h1>
     </div>
+    <div class="column"></div>
+    <div class="column">
+        <a class="ui right-floated green basic button" href="/companies/new">
+            New Company
+            <i class="right chevron icon"></i>
+        </a>
+    </div>
+    <% companies.forEach(function(company){ %>
+    <div class="column">
+        <div class="ui attached segment">
+            <div class="ui header"><%=company.name%></div>
+            <div class="ui extra"><%=company.address%></div>
+            <div class="ui label"><%=company.category%></div>
+        </div>
+        <a href="/companies/<%= company._id%>">
+            <div class="ui bottom attached green button" tabindex="0">
+                More Info 
+                <i class="right chevron icon"></i>
+            </div>
+        </a>
+    </div>
+    <% }) %>
 </div>
 
 <% include ../partials/footer %>

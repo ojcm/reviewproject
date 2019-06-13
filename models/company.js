@@ -4,6 +4,7 @@ var companySchema = new mongoose.Schema({
     name: String,
     address: String,
     category: String,
+    description: String,
     created: {type: Date, default: Date.now()}
 });
 module.exports = mongoose.model("Company", companySchema);
