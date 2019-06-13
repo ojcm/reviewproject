@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<div class="ui text container segment">
+<div class="ui text clearing container segment">
 
     <h1 class="ui header">Add New company</h1>
     <form class="ui form" action="/companies" method="POST">
@@ -14,13 +14,16 @@
       </div>
       <div class="field">
         <label>Description</label>
-        <textarea name="company[description]" ><%=company.description%></textarea>
+        <textarea name="company[description]" placeholder="Company Description"></textarea>
       </div>
       <div class="field">
         <label>Category</label>
         <input type="text" name="company[category]" placeholder="Category">
       </div>
-      <button class="ui button" type="submit">Submit</button>
+      <a href="/companies/" >
+        <button class="ui left floated negative basic button" type="submit">Cancel</button>
+      </a>
+      <button class="ui right floated positive button" type="submit">Submit</button>
     </form>
 </div>
 
