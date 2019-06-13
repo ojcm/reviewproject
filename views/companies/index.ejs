@@ -6,7 +6,7 @@
     </div>
     <div class="column"></div>
     <div class="column">
-        <a class="ui right-floated green basic button" href="/companies/new">
+        <a class="ui right floated green basic button" href="/companies/new">
             New Company
             <i class="right chevron icon"></i>
         </a>
@@ -17,6 +17,7 @@
             <div class="ui header"><%=company.name%></div>
             <div class="ui extra"><%=company.address%></div>
             <div class="ui label"><%=company.category%></div>
+            <div class="ui extra"><%=company.reviewCount%> reviews</div>
         </div>
         <a href="/companies/<%= company._id%>">
             <div class="ui bottom attached green button" tabindex="0">

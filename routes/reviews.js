@@ -16,7 +16,6 @@ router.get("/new", function(req, res){
 
 // CREATE route
 router.post("/", function(req, res){
-    console.log("CREATE ROUTE");
     Company.findById(req.params.id, function(err, company){
         if (err) {
             console.log(err);
@@ -27,7 +26,6 @@ router.post("/", function(req, res){
                   res.render("reviews/new");
                   console.log("ERROR");
                 } else {
-                    console.log(newReview);
                     company.reviews.push(newReview);
                     company.save();
                   res.redirect("/companies/" + req.params.id);
