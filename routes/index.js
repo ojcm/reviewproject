@@ -39,4 +39,11 @@ router.get("/logout", function(req, res) {
     res.redirect("/companies");
 });
 
+//==========================
+// PROFILE ROUTES
+//==========================
+router.get("/profile", function(req, res){
+    res.render("profile");
+});
+
 module.exports = router;
