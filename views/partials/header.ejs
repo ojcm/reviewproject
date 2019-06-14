@@ -15,7 +15,12 @@
     Companies
   </a>
   <div class="right menu">
-      <a class="item">Sign Up</a>
-      <a class="item">Log In</a>
+    <% if(!currentUser){ %>
+      <a class="item" href="/register">Register</a>
+      <a class="item" href="/login">Log In</a>
+    <% } else { %>
+      <a class="item" href="/profile"><%=currentUser.username%></a>
+      <a class="item" href="/logout">Log Out</a>
+    <% } %>
   </div>
 </div>

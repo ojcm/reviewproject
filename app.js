@@ -11,7 +11,8 @@ var express          = require("express"),
       
 var companyRoutes    = require("./routes/companies"),
     reviewRoutes     = require("./routes/reviews"),
-    adminRoutes      = require("./routes/admin");
+    adminRoutes      = require("./routes/admin"),
+    indexRoutes      = require("./routes/index");
 
 mongoose.connect("mongodb://localhost:27017/reviewsite", {useNewUrlParser: true});
 app.use(bodyParser.urlencoded({extended: true}));
@@ -45,6 +46,7 @@ app.use(function(req, res, next){
 app.use("/companies/", companyRoutes);
 app.use("/companies/:id/reviews", reviewRoutes);
 app.use("/admin/", adminRoutes);
+app.use("/", indexRoutes);
 
 app.get("/", function(req, res){
     res.render("landing");

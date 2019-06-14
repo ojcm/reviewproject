@@ -1,0 +1,22 @@
+<% include ./partials/header %>
+
+<div class="ui text clearing container segment">
+
+    <h1 class="ui header">Register</h1>
+    <form class="ui form" action="/register" method="POST">
+      <div class="field">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Username">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password">
+      </div>
+      <a href="/" >
+        <div class="ui left floated negative basic button">Cancel</div>
+      </a>
+      <button class="ui right floated positive button" type="submit">Submit</button>
+    </form>
+</div>
+
+<% include ./partials/footer %>
