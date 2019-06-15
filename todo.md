@@ -9,6 +9,8 @@
 + Limit inputs for category and state
 + Autocomplete address info
 + Associate reviews to users
++ Allow up/downvotes on reviews
++ Allow responses to reviews?
 + Add associated reviews in "/profile"
 + Add more admin pages
 + Add more fields to company and reviews
