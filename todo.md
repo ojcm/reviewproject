@@ -1,6 +1,7 @@
 # TO DO
 + Add user register and log in routes
 + Add search function
++ Add animation to companies during filtering. 
 + Add visible filter dropdowns. (see ` https://www.moesif.com/blog/technical/api-design/REST-API-Design-Filtering-Sorting-and-Pagination/# `)
 + Add sorting options. (see above)
 + Add pagination. (see above)
