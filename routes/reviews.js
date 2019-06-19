@@ -23,8 +23,8 @@ router.post("/", function(req, res){
         } else {
             Review.create(req.body.review, function(err, newReview){
                 if (err) {
+                  console.log(err);
                   res.render("reviews/new");
-                  console.log("ERROR");
                 } else {
                     company.reviews.push(newReview);
                     company.save();
@@ -40,7 +40,7 @@ router.get("/:reviewid/edit", function(req, res){
     // find review in DB
     Review.findById(req.params.reviewid, function(err, foundReview){
         if (err) {
-            console.log("ERROR");
+            console.log(err);
             res.redirect("/companies/" + req.params.id);
         } else {
             res.render("reviews/edit", {review: foundReview, company_id: req.params.id});
@@ -52,7 +52,7 @@ router.get("/:reviewid/edit", function(req, res){
 router.put("/:reviewid", function(req, res){
     Review.findByIdAndUpdate(req.params.reviewid, req.body.review, function(err, foundReview){
         if (err) {
-            console.log("ERROR");
+            console.log(err);
             res.redirect("/companies/" + req.params.id);
         } else {
             res.redirect("/companies/" + req.params.id);
@@ -65,7 +65,7 @@ router.delete("/:reviewid", function (req, res){
     // Find and delete by id
     Review.findByIdAndRemove(req.params.reviewid, function(err){
        if (err) {
-           console.log("ERROR");
+           console.log(err);
            res.redirect("/companies" + req.params.id);
        } else {
            res.redirect("/companies" + req.params.id);
