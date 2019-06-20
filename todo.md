@@ -5,7 +5,6 @@
 + Auto calculate company rating scores
 + Tidy review create/edit forms
 + Display review score
-+ Add basic image support
 + Limit inputs for category and state
 + improve branding and styling
 + Tidy UI 
