@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Companies</title>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet">
-        <link href="stylesheets/landing.css" rel="stylesheet">
-    </head>
-    <body>
+<% include ./partials/header %>
+
+<link href="stylesheets/landing.css" rel="stylesheet">
+
+<div class="crossfade">
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+    <figure></figure>
+</div>
+
 
 <div class="ui vertical masthead center aligned segment" >
     <div class="ui text container" >
-        <h1 id="landing-header" class="ui header">CompanyReview</h1>
+        <h1 id="landing-header" class="ui header">
+            FairDinkumDays
+            <div class="sub header">Helping backpackers find fair dinkum work.</div>
+        </h1>
         
-        <a class="ui huge primary button" href="/companies">View All Companies</a>
+       
+        <form class="ui form" action="/companies" method="GET">
+            <div class="field">
+                <input type="text" name="search" placeholder="Search Companies">
+            </div>
+        </form>
+        <a class="margined ui big primary button" href="/companies">View All Companies</a>
     </div>
 
 </div>
