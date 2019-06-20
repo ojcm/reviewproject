@@ -4,8 +4,8 @@
     <div class="ui clearing basic segment">
 
         <h1 class="ui header"><%= company.name %></h1>
-        <p><%= company.address %><br/><%= company.suburb %> <%= company.state %> <%= company.postalcode %></p>
-        <div class="ui label"><%= company.category %></div>
+        <p><%= company.address %><br/><span class="capitalize" ><%= company.suburb %></span> <span class="uppercase"><%= company.state %></span> <%= company.postalcode %></p>
+        <div class="ui label capitalize"><%= company.category %></div>
         <p><%= company.description %></p>
         
         <!--<div>-->

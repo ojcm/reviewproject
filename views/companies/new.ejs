@@ -6,31 +6,60 @@
     <form class="ui form" action="/companies" method="POST">
       <div class="field">
         <label>Name</label>
-        <input type="text" name="company[name]" placeholder="Company Name">
+        <input type="text" name="company[name]" placeholder="Name">
       </div>
       <div class="field">
         <label>Address</label>
-        <input type="text" name="company[address]" placeholder="Company Address">
+        <input type="text" name="company[address]" placeholder="Address">
       </div>
-      <div class="field">
-        <label>Suburb</label>
-        <input type="text" name="company[suburb]" placeholder="Suburb">
-      </div>
-      <div class="field">
-        <label>State</label>
-        <input type="text" name="company[state]" placeholder="State">
-      </div>
-      <div class="field">
-        <label>Postal Code</label>
-        <input type="text" name="company[postalcode]" placeholder="Postal Code">
+      <div class="three fields">
+        <div class="field">
+          <label>Suburb</label>
+          <input type="text" name="company[suburb]" placeholder="Suburb">
+        </div>
+        <div class="field">
+          <div class="label">State</div>
+          <div class="ui fluid selection dropdown">
+            <input type="hidden" name="company[state]">
+            <i class="dropdown icon"></i>
+            <div class="default text">State</div>
+            <div class="menu">
+              <div class="item" data-text="NSW">NSW</div>
+              <div class="item" data-text="NT">NT</div>
+              <div class="item" data-text="QLD">QLD</div>
+              <div class="item" data-text="SA">SA</div>
+              <div class="item" data-text="TAS">TAS</div>
+              <div class="item" data-text="VIC">VIC</div>
+              <div class="item" data-text="WA">WA</div>
+              <div class="item" data-text="Other">Other</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Postal Code</label>
+          <input type="text" name="company[postalcode]" placeholder="Postal Code">
+        </div>
       </div>
       <div class="field">
         <label>Description</label>
         <textarea name="company[description]" placeholder="Company Description"></textarea>
       </div>
       <div class="field">
-        <label>Category</label>
-        <input type="text" name="company[category]" placeholder="Category">
+        <div class="label">Category</div>
+        <div class="ui fluid selection dropdown">
+          <input type="hidden" name="company[category]">
+          <i class="dropdown icon"></i>
+          <div class="default text">Category</div>
+          <div class="menu">
+            <div class="item" data-text="Construction">Construction</div>
+            <div class="item" data-text="Farming">Farming</div>
+            <div class="item" data-text="Fishing">Fishing</div>
+            <div class="item" data-text="Forestry">Forestry</div>
+            <div class="item" data-text="Hospitality">Hospitality</div>
+            <div class="item" data-text="Mining">Mining</div>
+            <div class="item" data-text="Other">Other</div>
+          </div>
+        </div>
       </div>
       <a href="/companies/" >
         <div class="ui left floated negative basic button">Cancel</div>
@@ -38,5 +67,9 @@
       <button class="ui right floated positive button" type="submit">Submit</button>
     </form>
 </div>
-
+<script>
+$('.ui.dropdown')
+  .dropdown()
+;
+</script>
 <% include ../partials/footer %>
