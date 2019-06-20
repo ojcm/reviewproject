@@ -59,43 +59,43 @@ router.get("/:id", function(req, res){
     });
 });
 
-// EDIT route
-router.get("/:id/edit", function(req, res){
-    // find review in DB
-    Company.findById(req.params.id, function(err, foundCompany){
-        if (err) {
-            console.log(err);
-            res.redirect("/companies/" + req.params.id);
-        } else {
-            res.render("companies/edit", {company: foundCompany});
-        }
-    });
-});
+// // EDIT route
+// router.get("/:id/edit", function(req, res){
+//     // find review in DB
+//     Company.findById(req.params.id, function(err, foundCompany){
+//         if (err) {
+//             console.log(err);
+//             res.redirect("/companies/" + req.params.id);
+//         } else {
+//             res.render("companies/edit", {company: foundCompany});
+//         }
+//     });
+// });
 
-// UPDATE route
-router.put("/:id", function(req, res){
-    Company.findByIdAndUpdate(req.params.id, req.body.company, function(err, foundCompany){
-        if (err) {
-            console.log(err);
-            res.redirect("/companies/");
-        } else {
-            res.redirect("/companies/" + req.params.id);
-        }
-    });
-});
+// // UPDATE route
+// router.put("/:id", function(req, res){
+//     Company.findByIdAndUpdate(req.params.id, req.body.company, function(err, foundCompany){
+//         if (err) {
+//             console.log(err);
+//             res.redirect("/companies/");
+//         } else {
+//             res.redirect("/companies/" + req.params.id);
+//         }
+//     });
+// });
 
-// DESTROY route
-router.delete("/:id", function (req, res){
-    // Find and delete by id
-    Company.findByIdAndRemove(req.params.id, function(err){
-       if (err) {
-           console.log(err);
-           res.redirect("/companies");
-       } else {
-           res.redirect("/companies");
-       }
-    });
-});
+// // DESTROY route
+// router.delete("/:id", function (req, res){
+//     // Find and delete by id
+//     Company.findByIdAndRemove(req.params.id, function(err){
+//       if (err) {
+//           console.log(err);
+//           res.redirect("/companies");
+//       } else {
+//           res.redirect("/companies");
+//       }
+//     });
+// });
 
 // Middleware
 function isLoggedIn(req, res, next){
