@@ -36,42 +36,42 @@ router.post("/", function(req, res){
 });
 
 // EDIT route
-router.get("/:reviewid/edit", function(req, res){
-    // find review in DB
-    Review.findById(req.params.reviewid, function(err, foundReview){
-        if (err) {
-            console.log(err);
-            res.redirect("/companies/" + req.params.id);
-        } else {
-            res.render("reviews/edit", {review: foundReview, company_id: req.params.id});
-        }
-    });
-});
+// router.get("/:reviewid/edit", function(req, res){
+//     // find review in DB
+//     Review.findById(req.params.reviewid, function(err, foundReview){
+//         if (err) {
+//             console.log(err);
+//             res.redirect("/companies/" + req.params.id);
+//         } else {
+//             res.render("reviews/edit", {review: foundReview, company_id: req.params.id});
+//         }
+//     });
+// });
 
 // UPDATE route
-router.put("/:reviewid", function(req, res){
-    Review.findByIdAndUpdate(req.params.reviewid, req.body.review, function(err, foundReview){
-        if (err) {
-            console.log(err);
-            res.redirect("/companies/" + req.params.id);
-        } else {
-            res.redirect("/companies/" + req.params.id);
-        }
-    });
-});
+// router.put("/:reviewid", function(req, res){
+//     Review.findByIdAndUpdate(req.params.reviewid, req.body.review, function(err, foundReview){
+//         if (err) {
+//             console.log(err);
+//             res.redirect("/companies/" + req.params.id);
+//         } else {
+//             res.redirect("/companies/" + req.params.id);
+//         }
+//     });
+// });
 
 // DESTROY route
-router.delete("/:reviewid", function (req, res){
-    // Find and delete by id
-    Review.findByIdAndRemove(req.params.reviewid, function(err){
-       if (err) {
-           console.log(err);
-           res.redirect("/companies" + req.params.id);
-       } else {
-           res.redirect("/companies" + req.params.id);
-       }
-    });
-});
+// router.delete("/:reviewid", function (req, res){
+//     // Find and delete by id
+//     Review.findByIdAndRemove(req.params.reviewid, function(err){
+//       if (err) {
+//           console.log(err);
+//           res.redirect("/companies" + req.params.id);
+//       } else {
+//           res.redirect("/companies" + req.params.id);
+//       }
+//     });
+// });
 
 // Middleware
 function isLoggedIn(req, res, next){
