@@ -24,7 +24,7 @@ router.get("/", function(req, res){
         if (err){
             console.log(err);
         } else {
-            res.render("companies/index", {companies:companies});
+            res.render("companies/index", {companies:companies, searchValue: req.query.search});
         }
     });
 });
