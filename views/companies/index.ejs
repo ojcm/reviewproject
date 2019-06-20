@@ -1,18 +1,24 @@
 <% include ../partials/header %>
 
-<div class="ui three column doubling stackable grid container" >
-    <div class="column">
+<div class="ui doubling stackable grid container" >
+    <div class="eight wide column">
         <h1 class="ui inline header">Companies</h1>
     </div>
-    <div class="column"></div>
-    <div class="column">
+    <div class="eight wide column">
         <a class="ui right floated green basic button" href="/companies/new">
             New Company
             <i class="right chevron icon"></i>
         </a>
     </div>
+    <div class="sixteen wide column">
+        <form class="ui form" action="/companies" method="GET">
+            <div class="field">
+                <input type="text" name="search" placeholder="Search">
+            </div>
+        </form>
+    </div>
     <% companies.forEach(function(company){ %>
-    <div class="column">
+    <div class="four wide column">
         <div class="ui attached segment">
             <div class="ui header"><%=company.name%>
                 <a href="/companies?category=<%= company.category %>" >

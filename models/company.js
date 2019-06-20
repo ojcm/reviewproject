@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+mongoose.set('useCreateIndex', true);
+
 var companySchema = new mongoose.Schema({
     name: String,
     address: String,
@@ -15,6 +17,8 @@ var companySchema = new mongoose.Schema({
     reviewCount: {type: Number, default: 0},
     created: {type: Date, default: Date.now()}
 });
+
+companySchema.index({name: 'text'});
 
 companySchema.pre('validate', function (next) {
   this.reviewCount = this.reviews.length;

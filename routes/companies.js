@@ -5,6 +5,9 @@ var express = require("express"),
 // INDEX route
 router.get("/", function(req, res){
     var filter = {};
+    if (req.query.search) {
+        filter.$text = {$search: req.query.search};
+    }
     if (req.query.category) {
         filter.category = req.query.category;
     }
@@ -19,7 +22,7 @@ router.get("/", function(req, res){
     }
     Company.find(filter, function(err, companies){
         if (err){
-            console.log("Error");
+            console.log(err);
         } else {
             res.render("companies/index", {companies:companies});
         }
@@ -35,10 +38,10 @@ router.get("/new", function(req, res){
 router.post("/", function(req, res){
     Company.create(req.body.company, function(err, company){
         if (err) {
-          res.render("companies/new");
-          console.log("ERROR");
+            console.log(err);
+            res.render("companies/new");
         } else {
-          res.redirect("/companies");
+            res.redirect("/companies");
         }
     });
 });
@@ -48,7 +51,7 @@ router.get("/:id", function(req, res){
     // find company in DB
     Company.findById(req.params.id).populate("reviews").exec(function(err, foundCompany){
         if (err) {
-            console.log("ERROR");
+            console.log(err);
             res.redirect("/companies");
         } else {
             res.render("companies/show", {company: foundCompany});
@@ -61,7 +64,7 @@ router.get("/:id/edit", function(req, res){
     // find review in DB
     Company.findById(req.params.id, function(err, foundCompany){
         if (err) {
-            console.log("ERROR");
+            console.log(err);
             res.redirect("/companies/" + req.params.id);
         } else {
             res.render("companies/edit", {company: foundCompany});
@@ -73,7 +76,7 @@ router.get("/:id/edit", function(req, res){
 router.put("/:id", function(req, res){
     Company.findByIdAndUpdate(req.params.id, req.body.company, function(err, foundCompany){
         if (err) {
-            console.log("ERROR");
+            console.log(err);
             res.redirect("/companies/");
         } else {
             res.redirect("/companies/" + req.params.id);
@@ -86,7 +89,7 @@ router.delete("/:id", function (req, res){
     // Find and delete by id
     Company.findByIdAndRemove(req.params.id, function(err){
        if (err) {
-           console.log("ERROR");
+           console.log(err);
            res.redirect("/companies");
        } else {
            res.redirect("/companies");

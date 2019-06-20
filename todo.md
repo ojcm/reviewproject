@@ -1,6 +1,6 @@
 # TO DO
 
-+ Add search function
++ Display "Add new company" prompt when search returns no results.
 + Add more fields to company
 + Auto calculate company rating scores
 + Tidy review create/edit forms
