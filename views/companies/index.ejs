@@ -21,36 +21,48 @@
             </div>
         </form>
     </div>
-    <% companies.forEach(function(company){ %>
-    <div class="four wide column">
-        <div class="ui attached segment">
-            <div class="ui header"><%=company.name%>
-                <a href="/companies?category=<%= company.category %>" >
-                    <div class="capitalize ui tiny right floated button"><%=company.category%></div>
-                </a>
+    <% if (companies && companies.length > 0){ %>
+        <% companies.forEach(function(company){ %>
+        <div class="four wide column">
+            <div class="ui attached segment">
+                <div class="ui header"><%=company.name%>
+                    <a href="/companies?category=<%= company.category %>" >
+                        <div class="capitalize ui tiny right floated button"><%=company.category%></div>
+                    </a>
+                </div>
+                <div class="ui extra"><%=company.address%></div>
+                <div class="ui extra">
+                    <a class="capitalize" href="/companies?suburb=<%=company.suburb%>">
+                        <%=company.suburb %>
+                    </a>
+                    <a class="uppercase" href="/companies?state=<%=company.state%>">
+                        <%=company.state%>
+                    </a>
+                    <a href="/companies?postalcode=<%=company.postalcode%>">
+                        <%= company.postalcode %>
+                    </a>
+                </div>
+                <div class="ui extra"><%=company.reviewCount%> reviews</div>
             </div>
-            <div class="ui extra"><%=company.address%></div>
-            <div class="ui extra">
-                <a class="capitalize" href="/companies?suburb=<%=company.suburb%>">
-                    <%=company.suburb %>
-                </a>
-                <a class="uppercase" href="/companies?state=<%=company.state%>">
-                    <%=company.state%>
-                </a>
-                <a href="/companies?postalcode=<%=company.postalcode%>">
-                    <%= company.postalcode %>
-                </a>
-            </div>
-            <div class="ui extra"><%=company.reviewCount%> reviews</div>
+            <a href="/companies/<%= company._id%>">
+                <div class="ui bottom attached green button" tabindex="0">
+                    More Info 
+                    <i class="right chevron icon"></i>
+                </div>
+            </a>
         </div>
-        <a href="/companies/<%= company._id%>">
-            <div class="ui bottom attached green button" tabindex="0">
-                More Info 
-                <i class="right chevron icon"></i>
+        <% }) %>
+    <% } else { %>
+        <div class="sixteen wide column">
+            <div class="ui center aligned container">
+                No results for search "<%= searchValue %>".<br>
+                <a class="ui green tiny compact basic button" href="/companies/new">
+                    Add New Company Here
+                    <i class="right chevron icon"></i>
+                </a>
             </div>
-        </a>
-    </div>
-    <% }) %>
+        </div>
+    <% } %>
 </div>
 
 <% include ../partials/footer %>

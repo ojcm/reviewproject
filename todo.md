@@ -1,6 +1,5 @@
 # TO DO
 
-+ Display "Add new company" prompt when search returns no results.
 + Search on other fields.
 + Improve partial search.
 + Add more fields to company
@@ -10,3 +9,5 @@
 + Tidy UI
 + when no comments. Show comment loading (or something like that) from semantic UI with the link to make a new comment. 
 + Fix layout on index page when company name is long.
++ Improve landing page loading speed (many large bg images).
++ Add user feedback method.
