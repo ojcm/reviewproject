@@ -4,7 +4,8 @@
 + Improve partial search.
 + Add more fields to company
 + Auto calculate company rating scores
-+ Prevent review being submitted without ratings.
++ Add flash messages
++ Prevent review being submitted without ratings. (show flash message with error).
 + Display review score
 + Tidy UI
 + when no comments. Show comment loading (or something like that) from semantic UI with the link to make a new comment. 
