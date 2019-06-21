@@ -9,6 +9,8 @@ var companySchema = new mongoose.Schema({
     state: String,
     postalcode: String,
     category: String,
+    valid417: String, // Yes, No, Unknown
+    valid462: String, // Yes, No, Unknown 
     description: String,
     reviews: [{
         type: mongoose.Schema.Types.ObjectId, 
@@ -18,7 +20,7 @@ var companySchema = new mongoose.Schema({
     created: {type: Date, default: Date.now()}
 });
 
-companySchema.index({name: 'text'});
+companySchema.index({name: 'text', address: 'text', suburb: 'text', state: 'text'}); //, {name: 'blah', weights: {name: 400, address: 300, suburb: 200, state: 100}});
 
 companySchema.pre('validate', function (next) {
   this.reviewCount = this.reviews.length;

@@ -2,7 +2,7 @@
 
 + Search on other fields.
 + Improve partial search.
-+ Add more fields to company
++ Add rating fields to company
 + Auto calculate company rating scores
 + Add flash messages
 + Prevent review being submitted without ratings. (show flash message with error).

@@ -42,7 +42,7 @@
       </div>
       <div class="field">
         <label>Description</label>
-        <textarea name="company[description]" placeholder="Company Description"></textarea>
+        <textarea rows="3" name="company[description]" placeholder="Company Description"></textarea>
       </div>
       <div class="field">
         <div class="label">Category</div>
@@ -58,6 +58,34 @@
             <div class="item" data-value="Hospitality">Hospitality</div>
             <div class="item" data-value="Mining">Mining</div>
             <div class="item" data-value="Other">Other</div>
+          </div>
+        </div>
+      </div>
+      <div class="two fields">
+        <div class="field">
+          <div class="label">417 Visa Sign-off</div>
+          <div class="ui fluid selection dropdown">
+            <input type="hidden" name="company[valid417]">
+            <i class="dropdown icon"></i>
+            <div class="default text">417 Visa Sign-off</div>
+            <div class="menu">
+              <div class="item" data-value="Yes">Yes</div>
+              <div class="item" data-value="No">No</div>
+              <div class="item" data-value="Unknown">Unknown</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="label">462 Visa Sign-off</div>
+          <div class="ui fluid selection dropdown">
+            <input type="hidden" name="company[valid462]">
+            <i class="dropdown icon"></i>
+            <div class="default text">462 Visa Sign-off</div>
+            <div class="menu">
+              <div class="item" data-value="Yes">Yes</div>
+              <div class="item" data-value="No">No</div>
+              <div class="item" data-value="Unknown">Unknown</div>
+            </div>
           </div>
         </div>
       </div>

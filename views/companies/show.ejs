@@ -6,6 +6,12 @@
         <h1 class="ui header"><%= company.name %></h1>
         <p><%= company.address %><br/><span class="capitalize" ><%= company.suburb %></span> <span class="uppercase"><%= company.state %></span> <%= company.postalcode %></p>
         <div class="ui label capitalize"><%= company.category %></div>
+        <div>
+            417 Visa Sign-off: <%= company.valid417 %>
+        </div>
+        <div>
+            462 Visa Sign-off: <%= company.valid462 %>
+        </div>
         <p><%= company.description %></p>
         
         <!--<div>-->
