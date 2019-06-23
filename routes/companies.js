@@ -6,7 +6,7 @@ var express = require("express"),
 router.get("/", function(req, res){
     var filter = {};
     if (req.query.search) {
-        filter.$text = {$search: req.query.search};
+        filter.name = { $regex: ".*" + req.query.search + ".*", "$options": "i" };
     }
     if (req.query.category) {
         filter.category = req.query.category;
