@@ -42,7 +42,7 @@
                         <%= company.postalcode %>
                     </a>
                 </div>
-                <div class="ui extra"><%=company.reviewCount%> reviews</div>
+                <div class="ui extra"><%= company.overallRating %>/5 (<%=company.reviewCount%> reviews)</div>
             </div>
             <a href="/companies/<%= company._id%>">
                 <div class="ui bottom attached green button" tabindex="0">
