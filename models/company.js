@@ -17,6 +17,12 @@ var companySchema = new mongoose.Schema({
         ref: 'Review'
     }],
     reviewCount: {type: Number, default: 0},
+    ratingOverall: {type: Number, default: 0},
+    ratingPay: {type: Number, default: 0},
+    ratingAtmosphere: {type: Number, default: 0},
+    ratingStaff: {type: Number, default: 0},
+    ratingSafety: {type: Number, default: 0},
+    ratingAccomodation: {type: Number, default: 0},
     created: {type: Date, default: Date.now()}
 });
 

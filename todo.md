@@ -2,7 +2,7 @@
 
 ## Must do:
 + Add user feedback method.
-+ Add rating fields to company
++ Switch to SQL database???
 + Auto calculate company rating scores
 + Display rating scores.
 + Prevent review being submitted without ratings. (show flash message with error).
