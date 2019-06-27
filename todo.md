@@ -1,7 +1,6 @@
 # TO DO
 
 ## Must do:
-+ Add user feedback method.
 + Switch to SQL database???
 + Auto calculate company rating scores
 + Display rating scores.

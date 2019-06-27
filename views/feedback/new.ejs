@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+<div class="ui text clearing container segment">
+
+    <h1 class="ui header">Feedback</h1>
+    <form class="ui form" action="/feedback" method="POST">
+      <div class="field">
+        <label>Name</label>
+        <input type="text" name="feedback[name]" placeholder="Name">
+      </div>
+      <div class="field">
+        <label>Email Address</label>
+        <input type="text" name="feedback[email]" placeholder="Email Address">
+      </div>
+      <div class="field">
+        <label>Feedback</label>
+        <textarea rows="5" name="feedback[content]"></textarea>
+      </div>
+      <a href="/" >
+        <div class="ui left floated negative basic button">Cancel</div>
+      </a>
+      <button class="ui right floated positive button" type="submit">Submit</button>
+    </form>
+</div>
+
+<% include ../partials/footer %>
