@@ -7,7 +7,8 @@ var express          = require("express"),
     seedDB           = require("./seed"),
     passport         = require("passport"),
     LocalStrategy    = require("passport-local"),
-    User             = require("./models/user");
+    User             = require("./models/user"),
+    flash            = require("connect-flash");
       
 var companyRoutes    = require("./routes/companies"),
     reviewRoutes     = require("./routes/reviews"),
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 app.use(express.static('public'));
+app.use(flash());
 
 // seedDB();
 
@@ -37,9 +39,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// Pass current user to every route.
+// Pass current user and err/success messages to every route.
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 

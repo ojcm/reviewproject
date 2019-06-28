@@ -18,17 +18,20 @@ router.get("/new", function(req, res){
 router.post("/", function(req, res){
     Company.findById(req.params.id, function(err, company){
         if (err) {
+            req.flash("error", "Error submitting review. Please try again.");
             console.log(err);
             res.redirect("/companies/" + req.params.id + "/reviews/new");
         } else {
             Review.create(req.body.review, function(err, newReview){
                 if (err) {
-                  console.log(err);
-                  res.render("reviews/new");
+                    console.log(err);
+                    req.flash("error", "Error submitting review. Please try again.");
+                    res.redirect("/companies/" + req.params.id + "/reviews/new");
                 } else {
                     company.reviews.push(newReview);
                     company.save();
-                  res.redirect("/companies/" + req.params.id);
+                    req.flash("success", "Review submitted.");
+                    res.redirect("/companies/" + req.params.id);
                 }
             });
         }

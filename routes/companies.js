@@ -39,8 +39,10 @@ router.post("/", function(req, res){
     Company.create(req.body.company, function(err, company){
         if (err) {
             console.log(err);
+            req.flash("error", "Error creating company. Please try again.");
             res.render("companies/new");
         } else {
+            req.flash("success", "New company created.");
             res.redirect("/companies");
         }
     });
