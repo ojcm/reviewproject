@@ -7,6 +7,8 @@
 + Improve error handling of bad form inputs.
 
 ## Nice to have:
++ Review form handle piecework
++ Review form move accommodation rating to be with other accommodation fields.
 + Search on other fields.
 + Tidy UI
 + When no comments, show comment loading (or something like that) from semantic UI with the link to make a new comment. 
