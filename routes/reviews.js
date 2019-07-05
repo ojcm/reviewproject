@@ -16,26 +16,51 @@ router.get("/new", function(req, res){
 
 // CREATE route
 router.post("/", function(req, res){
-    Company.findById(req.params.id, function(err, company){
-        if (err) {
-            req.flash("error", "Error submitting review. Please try again.");
-            console.log(err);
-            res.redirect("/companies/" + req.params.id + "/reviews/new");
-        } else {
-            Review.create(req.body.review, function(err, newReview){
-                if (err) {
-                    console.log(err);
-                    req.flash("error", "Error submitting review. Please try again.");
-                    res.redirect("/companies/" + req.params.id + "/reviews/new");
-                } else {
-                    company.reviews.push(newReview);
-                    company.save();
-                    req.flash("success", "Review submitted.");
-                    res.redirect("/companies/" + req.params.id);
-                }
-            });
-        }
-    })
+    console.log(req.body.review);
+    var dataComplete = true;
+    var error_message = "";
+    if ((req.body.review.ratingPay == "" || 
+         req.body.review.ratingAtmosphere == "" || 
+         req.body.review.ratingStaff == "" ||
+         req.body.review.ratingSafety == "")) {
+        dataComplete = false;
+        error_message = "Please add ratings and try again.";
+    } else if (req.body.review.accomodationProvided == "") {
+        dataComplete = false;
+        error_message = "Please add accomodation details and try again.";
+    } else if (req.body.review.accomodationProvided == "1" &&
+               (req.body.review.accomodationCost == "" ||
+                req.body.review.accomodationCostRate == "" ||
+                req.body.review.ratingAccomodation == "")) {
+        dataComplete = false;
+        error_message = "Please complete accomodation details and try again.";
+    }
+    
+    if (!dataComplete) {
+        req.flash("error", error_message);
+        res.redirect("/companies/" + req.params.id + "/reviews/new");
+    } else {
+        Company.findById(req.params.id, function(err, company){
+            if (err) {
+                req.flash("error", "Error submitting review. Please try again.");
+                console.log(err);
+                res.redirect("/companies/" + req.params.id + "/reviews/new");
+            } else {
+                Review.create(req.body.review, function(err, newReview){
+                    if (err) {
+                        console.log(err);
+                        req.flash("error", "Error submitting review. Please try again.");
+                        res.redirect("/companies/" + req.params.id + "/reviews/new");
+                    } else {
+                        company.reviews.push(newReview);
+                        company.save();
+                        req.flash("success", "Review submitted.");
+                        res.redirect("/companies/" + req.params.id);
+                    }
+                });
+            }
+        });
+    }
 });
 
 // EDIT route
