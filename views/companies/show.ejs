@@ -33,14 +33,37 @@
         <h3 class="ui dividing header">Reviews</h3>
         <% company.reviews.forEach(function(review){ %>
             <div class="comment">
+                <a class="avatar">
+                    <i class="big user circle icon"></i>
+                </a>
                 <div class="content">
-                    <div class="ui item">
-                        <div class="content">
-                            <div class="author"><%=review.author%></div>
-                            <div class="text"><%=review.body%></div>
-                            <div class="extra">Rating:<%=review.rating%></div>
-                        </div>
+                    <a class="author"><%=review.author%></a>
+                    <div class="metadata">
+                         <div class="date" ><%= new Date(review.created).toDateString(); %></div>
                     </div>
+                    <div class="text"><%=review.body%></div>
+                    
+                    <h5 class="ui dividing header">Ratings</h5>
+                    <div class="extra">Overall:<%=review.ratingOverall%></div>
+                    <div class="extra">Pay:<%=review.ratingPay%></div>
+                    <div class="extra">Atmosphere:<%=review.ratingAtmosphere%></div>
+                    <div class="extra">Staff:<%=review.ratingStaff%></div>
+                    <div class="extra">Safety:<%=review.ratingSafety%></div>
+                    <% if (review.accomodationProvided) { %>
+                        <div class="extra">Accomodation:<%=review.ratingAccomodation%></div>
+                    <% } %>
+                    
+                    <h5 class="ui dividing header">Salary/Hours</h5>
+                    <div class="extra">Salary:$<%=review.salary%> <%=review.salaryRate%></div>
+                    <div class="extra">Hours per week:<%=review.hoursPerWeek%></div>
+                    <div class="extra">Days per week:<%=review.daysPerWeek%></div>
+                    
+                    <h5 class="ui dividing header">Accomodation</h5>
+                    <div class="extra">Accomodation provided: <% if (review.accomodationProvided) { %>Yes <% } else { %> No <% } %></div>
+                    <% if (review.accomodationProvided) { %>
+                        <div class="extra">Rating:<%=review.ratingAccomodation%></div>
+                        <div class="extra">Cost:<%=review.accomodationCost%> <%=review.accomodationCostRate%></div>
+                    <% } %>
                 </div>
             </div>
         <% }) %>
