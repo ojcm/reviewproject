@@ -6,13 +6,25 @@
         <h1 class="ui header"><%= company.name %></h1>
         <p><%= company.address %><br/><span class="capitalize" ><%= company.suburb %></span> <span class="uppercase"><%= company.state %></span> <%= company.postalcode %></p>
         <div class="ui label capitalize"><%= company.category %></div>
+        <p><%= company.description %></p>
+        
+        <h3 class="ui dividing header">Ratings</h3>
+        <div>Overall: <%= Math.round(company.ratingOverall*2)/2 %></div>
+        <div>Pay: <%= Math.round(company.ratingPay*2)/2 %></div>
+        <div>Atmosphere: <%= Math.round(company.ratingAtmosphere*2)/2 %></div>
+        <div>Staff: <%= Math.round(company.ratingStaff*2)/2 %></div>
+        <div>Safety: <%= Math.round(company.ratingSafety*2)/2 %></div>
+        <% if (company.accomodationProvided) { %>
+        <div>Accomodation: <%= Math.round(company.ratingAccomodation*2)/2 %></div>
+        <% } %>
+        
+        <h3 class="ui dividing header">Visa sign-off</h3>
         <div>
             417 Visa Sign-off: <%= company.valid417 %>
         </div>
         <div>
             462 Visa Sign-off: <%= company.valid462 %>
         </div>
-        <p><%= company.description %></p>
         
         <!--<div>-->
         <!--    <form action="/companies/<%= company._id %>?_method=DELETE" method="POST">-->

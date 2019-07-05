@@ -1,9 +1,7 @@
 # TO DO
 
 ## Must do:
-+ Auto calculate company rating scores
-+ Display rating scores for company.
-+ Calculate overall rating for review + display.
++ Auto calculate company accomodation rating scores.
 
 ## Nice to have:
 + Move "Add review" button to top of review list
