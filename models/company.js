@@ -28,9 +28,4 @@ var companySchema = new mongoose.Schema({
 
 companySchema.index({name: 'text', address: 'text', suburb: 'text', state: 'text'}); //, {name: 'blah', weights: {name: 400, address: 300, suburb: 200, state: 100}});
 
-companySchema.pre('validate', function (next) {
-  this.reviewCount = this.reviews.length;
-  next();
-});
-
 module.exports = mongoose.model("Company", companySchema);

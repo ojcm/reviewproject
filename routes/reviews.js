@@ -16,7 +16,6 @@ router.get("/new", function(req, res){
 
 // CREATE route
 router.post("/", function(req, res){
-    console.log(req.body.review);
     var dataComplete = true;
     var error_message = "";
     if ((req.body.review.ratingPay == "" || 
@@ -53,6 +52,7 @@ router.post("/", function(req, res){
                         res.redirect("/companies/" + req.params.id + "/reviews/new");
                     } else {
                         company.reviews.push(newReview);
+                        updateCompanyRatings(company, newReview);
                         company.save();
                         req.flash("success", "Review submitted.");
                         res.redirect("/companies/" + req.params.id);
@@ -101,12 +101,21 @@ router.post("/", function(req, res){
 //     });
 // });
 
-// Middleware
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect("/login");
+function updateCompanyRatings(company, review){
+    company.ratingOverall    = ((company.ratingOverall * company.reviewCount) + review.ratingOverall) / 
+                               (company.reviewCount + 1);
+    company.ratingPay        = ((company.ratingPay * company.reviewCount) + review.ratingPay) / 
+                               (company.reviewCount + 1);
+    company.ratingAtmosphere = ((company.ratingAtmosphere * company.reviewCount) + review.ratingAtmosphere) / 
+                               (company.reviewCount + 1);
+    company.ratingStaff      = ((company.ratingStaff * company.reviewCount) + review.ratingStaff) / 
+                               (company.reviewCount + 1);
+    company.ratingSafety     = ((company.ratingSafety * company.reviewCount) + review.ratingSafety) / 
+                               (company.reviewCount + 1);
+    
+    // company.ratingAccomodation = ((company.ratingAccomodation * company.ratingAccomodationCount) + newReview.ratingAccomodation) / company.ratingAccomodationCount + 1;
+    
+    company.reviewCount = company.reviews.length;
 }
 
 module.exports = router;

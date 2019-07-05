@@ -20,16 +20,15 @@ var reviewSchema = new mongoose.Schema({
     created: {type: Date, default: Date.now()}
 });
 
-// reviewSchema.pre('validate', function (next) {
-//     var ratingTotal = (this.ratingPay + this.ratingAtmosphere + 
-//                       this.ratingStaff + this.ratingSafety);
-//     var ratingFields = 4;
-//     if (this.ratingAccomodation){
-//         ratingTotal += this.ratingAccomodation;
-//         ratingFields += 1;
-//     }
-//     this.ratingOverall = (ratingTotal / ratingFields);
-//     next();
-// }); 
+reviewSchema.pre('validate', function(next){
+   var numRatings = 4;
+   var totalRating = (this.ratingPay + this.ratingAtmosphere + this.ratingStaff + this.ratingSafety);
+   if (this.accomodationProvided) {
+       totalRating += this.ratingAccomodation;
+       numRatings += 1;
+   }
+   this.ratingOverall = Math.round(2*totalRating / numRatings)/2;
+   next(); 
+});
 
 module.exports = mongoose.model("Review", reviewSchema);
