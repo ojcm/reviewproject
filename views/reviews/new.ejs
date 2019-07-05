@@ -17,7 +17,7 @@
       <!--  <input type="text" name="review[image]" placeholder="Image URL">-->
       <!--</div>-->
       <h4 class="ui dividing header">Ratings</h4>
-      <div class="three fields">
+      <div class="two fields">
         <div class="required field">
           <div class="label">Pay</div>
           <div class="ui fluid selection dropdown">
@@ -36,6 +36,8 @@
             <% include ../partials/star-select %>
           </div>
         </div>
+      </div>
+      <div class="two fields">
         <div class="required field">
           <div class="label">Staff</div>
           <div class="ui fluid selection dropdown">
@@ -45,23 +47,12 @@
             <% include ../partials/star-select %>
           </div>
         </div>
-      </div>
-      <div class="three fields">
         <div class="required field">
           <div class="label">Safety</div>
           <div class="ui fluid selection dropdown">
             <input type="hidden" name="review[ratingSafety]">
             <i class="dropdown icon"></i>
             <div class="default text">Safety</div>
-            <% include ../partials/star-select %>
-          </div>
-        </div>
-        <div class="required field">
-          <div class="label">Accomodation</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[ratingAccomodation]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Accomodation</div>
             <% include ../partials/star-select %>
           </div>
         </div>
@@ -97,15 +88,26 @@
         </div>
       </div>
       <h4 class="ui dividing header">Accomodation</h4>
-      <div class="field">
-        <div class="label">Accomodation Provided</div>
-        <div class="ui fluid selection dropdown">
-          <input type="hidden" name="review[accomodationProvided]">
-          <i class="dropdown icon"></i>
-          <div class="default text">Accomodation Provided</div>
-          <div class="menu">
-            <div class="item" data-value="1">Yes</div>
-            <div class="item" data-value="0">No</div>
+      <div class="two fields">
+        <div class="field">
+          <div class="label">Accomodation Provided</div>
+          <div class="ui fluid selection dropdown">
+            <input type="hidden" name="review[accomodationProvided]">
+            <i class="dropdown icon"></i>
+            <div class="default text">Accomodation Provided</div>
+            <div class="menu">
+              <div class="item" data-value="1">Yes</div>
+              <div class="item" data-value="0">No</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="label">Accomodation Rating</div>
+          <div class="ui fluid selection dropdown">
+            <input type="hidden" name="review[ratingAccomodation]">
+            <i class="dropdown icon"></i>
+            <div class="default text">Accomodation</div>
+            <% include ../partials/star-select %>
           </div>
         </div>
       </div>

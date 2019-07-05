@@ -3,8 +3,6 @@
 ## Must do:
 + Auto calculate company rating scores
 + Display rating scores.
-+ Prevent review being submitted without ratings. (show flash message with error).
-+ Improve error handling of bad form inputs.
 
 ## Nice to have:
 + Review form handle piecework
