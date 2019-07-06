@@ -41,8 +41,15 @@
     </div>
 
 <!--Reviews-->
+    <div class="ui container">
+        <a class="ui tiny right floated positive button" 
+           href="/companies/<%= company._id %>/reviews/new">
+            Add Review
+        </a>
+        <h3 class="ui header">Reviews</h3>
+        <div class="ui clearing divider"></div>
+    </div>
     <div class="ui comments">
-        <h3 class="ui dividing header">Reviews</h3>
         <% company.reviews.forEach(function(review){ %>
             <div class="comment">
                 <a class="avatar">
@@ -79,10 +86,6 @@
                 </div>
             </div>
         <% }) %>
-        <a class="ui tiny right floated positive button" 
-           href="/companies/<%= company._id %>/reviews/new">
-            Add Review
-        </a>
     </div>
 </div>
 
