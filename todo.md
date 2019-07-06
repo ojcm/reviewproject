@@ -5,7 +5,6 @@
 
 ## Nice to have:
 + Display review scores as stars rather than numbers.
-+ Add 'piecework' (rather than hourly/daily pay) to review form.
 + Search on other fields.
 + Tidy UI
 + When no comments, show comment loading (or something like that) from semantic UI with the link to make a new comment. 
