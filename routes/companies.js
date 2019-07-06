@@ -40,7 +40,7 @@ router.post("/", function(req, res){
         if (err) {
             console.log(err);
             req.flash("error", "Error creating company. Please try again.");
-            res.render("companies/new");
+            res.redirect("companies/new");
         } else {
             req.flash("success", "New company created.");
             res.redirect("/companies");

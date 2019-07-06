@@ -3,15 +3,15 @@ var mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 
 var companySchema = new mongoose.Schema({
-    name: String,
-    address: String,
-    suburb: String,
-    state: String,
-    postalcode: String,
-    category: String,
-    valid417: String, // Yes, No, Unknown
-    valid462: String, // Yes, No, Unknown 
-    description: String,
+    name: {type: String, required: true},
+    address: {type: String, required: true},
+    suburb: {type: String, required: true},
+    state: {type: String, required: true},
+    postalcode: {type: String, required: true},
+    category: {type: String, required: true},
+    valid417: {type: String, required: true}, // Yes, No, Unknown
+    valid462: {type: String, required: true}, // Yes, No, Unknown 
+    description: {type: String, required: true},
     reviews: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'Review'
