@@ -4,7 +4,6 @@
 + Auto calculate company accomodation rating scores.
 
 ## Nice to have:
-+ Move "Add review" button to top of review list
 + Display review scores as stars rather than numbers.
 + Add 'piecework' (rather than hourly/daily pay) to review form.
 + Search on other fields.
