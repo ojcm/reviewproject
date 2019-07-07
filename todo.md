@@ -2,6 +2,7 @@
 
 ## Must do:
 + Auto calculate company accomodation rating scores.
++ Enable HTTPS
 
 ## Nice to have:
 + Display review scores as stars rather than numbers.
