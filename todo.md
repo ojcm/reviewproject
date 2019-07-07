@@ -1,7 +1,13 @@
 # TO DO
 
+## BOOTSTRAPIFY
++ Remaining views (companies/index, companies/show, feedback/new)
++ Fix star selects.
++ Test forms.
+
 ## Must do:
 + Auto calculate company accomodation rating scores.
++ Bootstrapify currently hidden pages.
 
 ## Nice to have:
 + Display review scores as stars rather than numbers.

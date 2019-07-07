@@ -5,12 +5,8 @@
   font-size: 4em;
   padding-top: 30vh;
 }
-.ui.button.margined {
-    margin: 1em !important;
-}
-.ui.menu {
-  position: relative;
-  z-index: 1;
+.jumbotron {
+    background: none;
 }
 .crossfade > figure {
   animation: imageAnimation 30s linear infinite 0s;

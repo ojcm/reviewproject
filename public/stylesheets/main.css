@@ -8,3 +8,6 @@
 #logo {
     padding: 0 0.5em;
 }
+#navbar {
+    z-index:1;
+}

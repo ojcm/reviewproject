@@ -1,103 +1,80 @@
 <% include ../partials/header %>
 
-<div class="ui text clearing container segment">
-
-    <h1 class="ui header">Add New Company</h1>
-    <form class="ui form" action="/companies" method="POST">
-      <div class="field">
-        <label>Name</label>
-        <input type="text" name="company[name]" placeholder="Name">
+<div class="container">
+  <h1>Add New Company</h1>
+  <form>
+    <div class="form-group" action="/companies" method="POST">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="company[name]" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" name="company[address]" placeholder="Address">
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="suburb">Suburb</label>
+        <input type="text" class="form-control" id="suburb" name="company[suburb]" placeholder="Suburb">
       </div>
-      <div class="field">
-        <label>Address</label>
-        <input type="text" name="company[address]" placeholder="Address">
+      <div class="form-group col-md-4">
+        <label for="state">State</label>
+        <select class="custom-select" id="state" name="company[state]">
+          <option selected>State</option>
+          <option value="NSW">NSW</option>
+          <option value="NT">NT</option>
+          <option value="QLD">QLD</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+          <option value="VIC">VIC</option>
+          <option value="WA">WA</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
-      <div class="three fields">
-        <div class="field">
-          <label>Suburb</label>
-          <input type="text" name="company[suburb]" placeholder="Suburb">
-        </div>
-        <div class="field">
-          <div class="label">State</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="company[state]">
-            <i class="dropdown icon"></i>
-            <div class="default text">State</div>
-            <div class="menu">
-              <div class="item" data-value="NSW">NSW</div>
-              <div class="item" data-value="NT">NT</div>
-              <div class="item" data-value="QLD">QLD</div>
-              <div class="item" data-value="SA">SA</div>
-              <div class="item" data-value="TAS">TAS</div>
-              <div class="item" data-value="VIC">VIC</div>
-              <div class="item" data-value="WA">WA</div>
-              <div class="item" data-value="Other">Other</div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Postal Code</label>
-          <input type="text" name="company[postalcode]" placeholder="Postal Code">
-        </div>
+      <div class="form-group col-md-4">
+        <label for="postalcode">Postal Code</label>
+        <input type="text" class="form-control" id="postalcode" name="company[postalcode]" placeholder="Postal Code">
       </div>
-      <div class="field">
-        <label>Description</label>
-        <textarea rows="3" name="company[description]" placeholder="Company Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" rows="3" name="company[description]" placeholder="Company Description"></textarea>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-4">
+        <label for="category">Category</label>
+        <select class="custom-select" id="state" name="company[category]">
+          <option selected>Category</option>
+          <option value="Construction">Construction</option>
+          <option value="Farming">Farming</option>
+          <option value="Fishing">Fishing</option>
+          <option value="Forestry">Forestry</option>
+          <option value="Hospitality">Hospitality</option>
+          <option value="Mining">Mining</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
-      <div class="field">
-        <div class="label">Category</div>
-        <div class="ui fluid selection dropdown">
-          <input type="hidden" name="company[category]">
-          <i class="dropdown icon"></i>
-          <div class="default text">Category</div>
-          <div class="menu">
-            <div class="item" data-value="Construction">Construction</div>
-            <div class="item" data-value="Farming">Farming</div>
-            <div class="item" data-value="Fishing">Fishing</div>
-            <div class="item" data-value="Forestry">Forestry</div>
-            <div class="item" data-value="Hospitality">Hospitality</div>
-            <div class="item" data-value="Mining">Mining</div>
-            <div class="item" data-value="Other">Other</div>
-          </div>
-        </div>
+      <div class="form-group col-md-4">
+        <label for="valid417">417 Visa Sign-off</label>
+        <select class="custom-select" id="valid417" name="company[valid417]">
+          <option selected>State</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Unknown">Unknown</option>
+        </select>
       </div>
-      <div class="two fields">
-        <div class="field">
-          <div class="label">417 Visa Sign-off</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="company[valid417]">
-            <i class="dropdown icon"></i>
-            <div class="default text">417 Visa Sign-off</div>
-            <div class="menu">
-              <div class="item" data-value="Yes">Yes</div>
-              <div class="item" data-value="No">No</div>
-              <div class="item" data-value="Unknown">Unknown</div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <div class="label">462 Visa Sign-off</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="company[valid462]">
-            <i class="dropdown icon"></i>
-            <div class="default text">462 Visa Sign-off</div>
-            <div class="menu">
-              <div class="item" data-value="Yes">Yes</div>
-              <div class="item" data-value="No">No</div>
-              <div class="item" data-value="Unknown">Unknown</div>
-            </div>
-          </div>
-        </div>
+      <div class="form-group col-md-4">
+        <label for="valid462">462 Visa Sign-off</label>
+        <select class="custom-select" id="valid462" name="company[valid462]">
+          <option selected>State</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          <option value="Unknown">Unknown</option>
+        </select>
       </div>
-      <a href="/companies/" >
-        <div class="ui left floated negative basic button">Cancel</div>
-      </a>
-      <button class="ui right floated positive button" type="submit">Submit</button>
-    </form>
+    </div>
+    <button type="submit" class="btn btn-success float-right">Submit</button>
+  <a class="btn btn-outline-danger" href="/companies/" role="button">Cancel</a>
+  </form>
 </div>
-<script>
-$('.ui.dropdown')
-  .dropdown()
-;
-</script>
+
 <% include ../partials/footer %>

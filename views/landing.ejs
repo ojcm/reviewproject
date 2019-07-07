@@ -10,23 +10,15 @@
     <figure></figure>
 </div>
 
-
-<div class="ui vertical masthead center aligned segment" >
-    <div class="ui text container" >
-        <h1 id="landing-header" class="ui header">
-            FairDinkumDays
-            <div class="sub header">Helping backpackers find fair dinkum work.</div>
-        </h1>
-        
-       
-        <form class="ui form" action="/companies" method="GET">
-            <div class="field">
-                <input type="text" name="search" placeholder="Search Companies">
-            </div>
-        </form>
-        <a class="margined ui big primary button" href="/companies">View All Companies</a>
-    </div>
-
+<div class="jumbotron" id="landing-header">
+    <h1 class="display-4">FairDinkumDays</h1>
+    <p class="lead">Helping backpackers find fair dinkum work.</p>
+    <form action="/companies" method="GET">
+        <div class="form-group">
+            <input class="form-control" type="text" name="search" placeholder="Search Companies">
+        </div>
+    </form>
+    <a class="btn btn-primary" href="/companies" role="button">View All Companies</a>
 </div>
 
 <% include partials/footer %>

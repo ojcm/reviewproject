@@ -1,147 +1,101 @@
 <% include ../partials/header %>
 
-<div class="ui text container clearing segment">
-
-    <h1 class="ui header">Add New Review for <%= company.name %></h1>
-    <form class="ui form" action="/companies/<%= company._id %>/reviews" method="POST">
-      <div class="required field">
-        <label>Author</label>
-        <input required type="text" name="review[author]" placeholder="Author">
-      </div>
-      <div class="required field">
-        <label>Review</label>
-        <textarea required rows="3" name="review[body]" placeholder="Review"></textarea>
-      </div>
-      <!--<div class="field">-->
-      <!--  <label>Image URL</label>-->
-      <!--  <input type="text" name="review[image]" placeholder="Image URL">-->
-      <!--</div>-->
-      <h4 class="ui dividing header">Ratings</h4>
-      <div class="two fields">
-        <div class="required field">
-          <div class="label">Pay</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[ratingPay]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Pay</div>
+<div class="container">
+  <h1>Add New Review for <%= company.name %></h1>
+  <form>
+    <div class="form-group" action="/companies/<%= company._id %>/reviews" method="POST">
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" name="review[author]" placeholder="Author">
+    </div>
+    <div class="form-group">
+      <label for="review">Review</label>
+      <textarea class="form-control" id="review" rows="3" name="review[review]" placeholder="Review"></textarea>
+    </div>
+    <h4>Ratings</h4>
+    <div class="row">
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="ratingPay">Pay</label>
+        <select class="custom-select" id="ratingPay" name="review[ratingPay]">
             <% include ../partials/star-select %>
-          </div>
-        </div>
-        <div class="required field">
-          <div class="label">Atmosphere</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[ratingAtmosphere]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Atmosphere</div>
+        </select>
+      </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="atmosphere">Atmosphere</label>
+        <select class="custom-select" id="atmosphere" name="review[ratingAtmosphere]">
             <% include ../partials/star-select %>
-          </div>
-        </div>
+        </select>
       </div>
-      <div class="two fields">
-        <div class="required field">
-          <div class="label">Staff</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[ratingStaff]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Staff</div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="staff">Staff</label>
+        <select class="custom-select" id="staff" name="review[ratingStaff]">
             <% include ../partials/star-select %>
-          </div>
-        </div>
-        <div class="required field">
-          <div class="label">Safety</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[ratingSafety]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Safety</div>
+        </select>
+      </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="safety">Safety</label>
+        <select class="custom-select" id="safety" name="review[ratingSafety]">
             <% include ../partials/star-select %>
-          </div>
-        </div>
+        </select>
       </div>
-      <h4 class="ui dividing header">Hours and Salary</h4>
-      <div class="two fields">
-        <div class="field">
-          <label>Hours per week</label>
-          <input type="number" name="review[hoursPerWeek]" placeholder="Hours per week">
-        </div>
-        <div class="field">
-          <label>Days per week</label>
-          <input type="number" name="review[daysPerWeek]" placeholder="Days per week">
-        </div>
+    </div>
+    <h4>Hours and Salary</h4>
+    <div class="row">
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="hoursPerWeek">Hours per week</label>
+          <input class="form-control" type="number" id="hoursPerWeek" name="review[hoursPerWeek]" placeholder="Hours per week">
       </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Salary (AUD $)</label>
-          <input type="number" name="review[salary]" placeholder="Salary">
-        </div>
-        <div class="field">
-          <div class="label">Salary Rate</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[salaryRate]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Salary Rate</div>
-            <div class="menu">
-              <div class="item" data-value="perHour">per hour</div>
-              <div class="item" data-value="perHour">per day</div>
-              <div class="item" data-value="perWeek">per week</div>
-              <div class="item" data-value="perKilo">per kilo</div>
-              <div class="item" data-value="perBin">per bin</div>
-              <div class="item" data-value="perItem">per item</div>
-            </div>
-          </div>
-        </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="daysPerWeek">Days per week</label>
+        <input class="form-control" type="number" id="daysPerWeek" name="review[daysPerWeek]" placeholder="Days per week">
       </div>
-      <h4 class="ui dividing header">Accomodation</h4>
-      <div class="two fields">
-        <div class="field">
-          <div class="label">Accomodation Provided</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[accomodationProvided]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Accomodation Provided</div>
-            <div class="menu">
-              <div class="item" data-value="1">Yes</div>
-              <div class="item" data-value="0">No</div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <div class="label">Accomodation Rating</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[ratingAccomodation]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Accomodation</div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="salary">Salary (AUD $)</label>
+          <input class="form-control" type="number" id="salary" name="review[salary]" placeholder="Salary">
+      </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="safety">Salary Rate</label>
+        <select class="custom-select" id="safety" name="review[ratingSafety]">
+          <option selected value="perHour">per hour</option>
+          <option value="perDay">per day</option>
+          <option value="perWeek">per week</option>
+          <option value="perKilo">per kilo</option>
+          <option value="perBin">per bin</option>
+          <option value="perItem">per item</option>
+        </select>
+      </div>
+    </div>
+    <h4>Accomodation</h4>
+    <div class="row">
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="accomodationProvided">Accomodation Provided</label>
+        <select class="custom-select" id="accomodationProvided" name="review[accomodationProvided]">
+          <option selected value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="ratingAccomodation">Accomodation Rating</label>
+        <select class="custom-select" id="ratingAccomodation" name="review[ratingAccomodation]">
             <% include ../partials/star-select %>
-          </div>
-        </div>
+        </select>
       </div>
-      <div class="two fields">
-        <div class="field">
-          <label>Accomodation Cost (AUD $)</label>
-          <input type="number" name="review[accomodationCost]" placeholder="Accomodation Cost">
-        </div>
-        <div class="field">
-          <div class="label">Accomodation Cost Rate</div>
-          <div class="ui fluid selection dropdown">
-            <input type="hidden" name="review[accomodationCostRate]">
-            <i class="dropdown icon"></i>
-            <div class="default text">Accomodation Cost Rate</div>
-            <div class="menu">
-              <div class="item" data-value="perNight">per night</div>
-              <div class="item" data-value="perWeek">per week</div>
-            </div>
-          </div>
-        </div>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="accomodationCost">Accomodation Cost (AUD $)</label>
+          <input class="form-control" type="number" id="accomodationCost" name="review[accomodationCost]" placeholder="Accomodation Cost">
       </div>
-      <a href="/companies/<%=company._id%>" >
-        <button class="ui left floated negative basic button">Cancel</button>
-      </a>
-      <button class="ui right floated primary button" type="submit">Submit</button>
-    </form>
+      <div class="form-group col-md-3 col-sm-6">
+        <label for="accomodationCostRate">Accomodation Cost Rate</label>
+        <select class="custom-select" id="accomodationCostRate" name="review[accomodationCostRate]">
+          <option selected value="perDay">per day</option>
+          <option value="perWeek">per week</option>
+        </select>
+      </div>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-success float-right">Submit</button>
+    <a class="btn btn-outline-danger" href="/companies/" role="button">Cancel</a>
+  </form>
 </div>
 
-<script>
-$('.ui.dropdown')
-  .dropdown()
-;
-</script>
 <% include ../partials/footer %>
