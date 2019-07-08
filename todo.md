@@ -2,7 +2,6 @@
 
 ## BOOTSTRAPIFY
 + Remaining views (companies/index, companies/show, feedback/new)
-+ Fix star selects.
 + Test forms.
 
 ## Must do:
